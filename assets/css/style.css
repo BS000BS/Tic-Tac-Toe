@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-box {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50px;
+    position: relative;
+    margin: 5vw auto;
+    box-shadow: 5px 5px 30px 5px rgb(127, 225, 255),
+                -5px -5px 30px 5px rgb(127, 225, 255);
+}
+
+.inner-box {
+    width: 28%;
+    height: 28%;
+    font-size: 3rem
+}
+
+.mid-lines {
+    position: absolute;
+    z-index: 5;
+    margin: 0 auto;
+    background-color: red;
+    border-radius: 30%;
+}
+
+.mid-lines-vertical {
+    width: 5px;
+    height: 90%;
+}
+
+.mid-lines-horizontal {
+    width: 90%;
+    height: 5px;
+}
+
+.big-box .mid-lines:nth-child(1) {
+    top: 33%;
+}
+.big-box .mid-lines:nth-child(2) {
+    bottom: 33%;
+}
+.big-box .mid-lines:nth-child(3) {
+    left: 33%;
+}
+.big-box .mid-lines:nth-child(4) {
+    right: 33%;
+}
