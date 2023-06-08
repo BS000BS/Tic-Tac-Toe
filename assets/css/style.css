@@ -11,14 +11,20 @@ header {
     align-items: center;
 }
 
+.main-content-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .big-box {
     width: 30vw;
     height: 30vw;
     border-radius: 50px;
     position: relative;
-    margin: 5vw auto;
-    box-shadow: 5px 5px 30px 5px rgb(127, 225, 255),
-                -5px -5px 30px 5px rgb(127, 225, 255);
+    margin: 5vw 0;
+    box-shadow: 5px 5px 30px 5px rgb(255, 100, 100),
+                -5px -5px 30px 5px rgb(255, 100, 100);
 }
 
 .inner-box {
@@ -31,7 +37,7 @@ header {
     position: absolute;
     z-index: 5;
     margin: 0 auto;
-    background-color: red;
+    background-color: black;
     border-radius: 30%;
 }
 
@@ -56,4 +62,68 @@ header {
 }
 .big-box .mid-lines:nth-child(4) {
     right: 33%;
+}
+
+.bi-x-lg {
+    color: red;
+}
+
+.bi-circle {
+    color: blue;
+}
+
+.game-controls {
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 4vw;
+}
+
+.result {
+    width: 100%;
+    height: 13vw;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.result .result-line {
+    background-color: black;
+    position: absolute;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.result .result-horizontal-line {
+    width: 100%;
+    height: 4px;
+    top: 50%;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+.result .result-vertical-line {
+    width: 4px;
+    height: 100%;
+    left: 35%;
+}
+
+.result .player1, .result .player2 {
+    font-size: 2rem;
+    padding-right: 15px;
+}
+
+.result .player1_result, .result .player2_result {
+    font-size: 2rem;
+    padding-right: 35px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
 }

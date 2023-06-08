@@ -14,20 +14,36 @@
         <h1>Tic-Tac-Toe</h1>
     </header>
     <main>
-        <div class="big-box d-flex flex-wrap justify-content-around align-items-center">
-            <div class="mid-lines mid-lines-horizontal"></div>
-            <div class="mid-lines mid-lines-horizontal"></div>
-            <div class="mid-lines mid-lines-vertical"></div>
-            <div class="mid-lines mid-lines-vertical"></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"><i class="bi bi-x-lg"></i></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"><i class="bi bi-circle"></i></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"><i class="bi bi-circle"></i></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"><i class="bi bi-x-lg"></i></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"><i class="bi bi-x-lg"></i></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"><i class="bi bi-circle"></i></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"></div>
-            <div class="inner-box d-flex justify-content-center align-items-center"><i class="bi bi-circle"></i></div>
+        <div class="main-content-wrapper">
+            <div class="big-box d-flex flex-wrap justify-content-around align-items-center">
+                <div class="mid-lines mid-lines-horizontal"></div>
+                <div class="mid-lines mid-lines-horizontal"></div>
+                <div class="mid-lines mid-lines-vertical"></div>
+                <div class="mid-lines mid-lines-vertical"></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="1"><i class="1 icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="2"><i class="icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="3"><i class="2 icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="4"><i class="icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="5"><i class="icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="6"><i class="icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="7"><i class="icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="8"><i class="icon"></i></div>
+                <div class="inner-box d-flex justify-content-center align-items-center" value="9"><i class="icon"></i></div>
+            </div>
+            <div class="game-controls">
+                <div class="result">
+                    <div class="result-line result-horizontal-line"></div>
+                    <div class="result-line result-vertical-line"></div>
+                    <div class="player1"><i class="bi bi-x-lg"></i></div>
+                    <div class="player1_result">0</div>
+                    <div class="player2"><i class="bi bi-circle"></i></div>
+                    <div class="player2_result">0</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-success restart">Play again <i class="bi bi-arrow-clockwise"></i></button>
+                    <button class="btn btn-secondary reset-results">Reset results</button>
+                </div>
+            </div>
         </div>
     </main>
     
