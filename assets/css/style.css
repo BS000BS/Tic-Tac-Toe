@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    position: relative;
+}
+
 header {
     padding: 2rem;
     display: flex;
@@ -15,6 +19,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    min-height: 80vh;
 }
 
 .big-box {
@@ -23,8 +28,8 @@ header {
     border-radius: 50px;
     position: relative;
     margin: 5vw 0;
-    box-shadow: 5px 5px 30px 5px rgb(255, 100, 100),
-                -5px -5px 30px 5px rgb(255, 100, 100);
+    box-shadow: 5px 5px 25px 3px rgb(255, 100, 100),
+                -5px -5px 25px 3px rgb(255, 100, 100);
 }
 
 .inner-box {
@@ -76,56 +81,31 @@ header {
     width: 20vw;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     row-gap: 4vw;
 }
 
-.result {
-    width: 100%;
-    height: 13vw;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
+table, table tr th, table tr td {
+    border: 2px solid black;
+    width: 50%;
 }
 
-.result .result-line {
-    background-color: black;
-    position: absolute;
-    margin: 0 auto;
-    border-radius: 50%;
+table {
+    text-align: center;
+    text-justify: center;
 }
 
-.result .result-horizontal-line {
-    width: 100%;
-    height: 4px;
-    top: 50%;
-    border-top-left-radius: 0%;
-    border-bottom-left-radius: 0%;
-}
-
-.result .result-vertical-line {
-    width: 4px;
-    height: 100%;
-    left: 35%;
-}
-
-.result .player1, .result .player2 {
+table tr td, table tr th {
+    padding: 15px;
     font-size: 2rem;
-    padding-right: 15px;
-}
-
-.result .player1_result, .result .player2_result {
-    font-size: 2rem;
-    padding-right: 35px;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
+    padding-bottom: 20px;
 }
 
 
@@ -136,31 +116,33 @@ header {
     align-items: center;
     border-radius: 40px;
     position: absolute;
-    width: 5vw;
-    height: 5vh;
+    width: 5%;
+    height: 5%;
     background-color: rgb(104, 245, 255);
     box-shadow: 5px 5px 30px 5px rgb(168, 168, 168),
                 -5px -5px 30px 5px rgb(168, 168, 168);
-    top: 47.5vh;
-    left: 47.5vw;
-    z-index: 1000;
+    top: 47.5%;
+    left: 47.5%;
+    z-index: -5;
     opacity: 0;
 }
 
 @keyframes display-popup {
     0% {
         opacity: 0;
-        width: 5vw;
-        height: 5vh;
-        top: 47.5vh;
-        left: 47.5vw;
+        width: 5%;
+        height: 5%;
+        top: 47.5%;
+        left: 47.5%;
+        z-index: -5;
     }
     100% {
         opacity: 0.8;
-        width: 70vw;
-        height: 70vh;
-        top: 15vh;
-        left: 15vw;
+        width: 70%;
+        height: 70%;
+        top: 15%;
+        left: 15%;
+        z-index: 1000;
     }
 }
 
@@ -168,6 +150,7 @@ header {
     letter-spacing: 1px;
     font-size: 0.2rem;
     word-spacing: 3px;
+    text-align: center;
 }
 
 @keyframes increase-font-size {
@@ -189,9 +172,152 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
     backdrop-filter: blur(10px);
     display: none;
     z-index: 50;
+}
+
+
+
+@media (max-width: 1250px) {
+    .game-controls {
+        width: 23vw;
+    }
+}
+
+@media (max-width: 1087px) {
+    .game-controls {
+        width: 24vw;
+    }
+
+    .restart, .reset-results {
+        font-size: 0.8rem !important;
+    }
+
+    table tr td, table tr th {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 905px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        gap: 5vw;
+    }
+
+    .big-box {
+        width: 40vw;
+        height: 40vw;
+        border-radius: 30px;
+        box-shadow: 5px 5px 20px 3px rgb(255, 100, 100),
+                    -5px -5px 20px 3px rgb(255, 100, 100);
+    }
+
+    .inner-box {
+        font-size: 2.7rem;
+    }
+
+    .game-controls {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 620px) {
+    .main-content-wrapper {
+        gap: 7vw;
+    }
+
+    .big-box {
+        width: 50vw;
+        height: 50vw;
+        border-radius: 20px;
+        margin: 5vw 0;
+        box-shadow: 5px 5px 15px 2px rgb(255, 100, 100),
+                    -5px -5px 15px 2px rgb(255, 100, 100);
+    }
+
+    .inner-box {
+        font-size: 2rem
+    }
+
+    .game-controls {
+        width: 40vw;
+    }
+
+    .buttons {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 15px;
+    }
+
+    table tr td, table tr th {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .inner-box {
+        font-size: 1.5rem;
+    }
+
+    .mid-lines-vertical {
+        width: 3px;
+    }
+    
+    .mid-lines-horizontal {
+        height: 3px;
+    }
+
+    .restart, .reset-results {
+        font-size: 0.6rem !important;
+    }
+
+    table tr td, table tr th {
+        font-size: 0.8rem;
+    }
+
+    @keyframes increase-font-size {
+        0% {
+            font-size: 0.2rem;
+        }
+        100% {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media (max-width: 250px) {
+    .inner-box {
+        font-size: 1rem;
+    }
+
+    .mid-lines-vertical {
+        width: 2px;
+    }
+    
+    .mid-lines-horizontal {
+        height: 2px;
+    }
+
+    .restart, .reset-results {
+        font-size: 0.4rem !important;
+    }
+
+    table tr td, table tr th {
+        font-size: 0.7rem;
+        padding: 8px;
+    }
+
+    @keyframes increase-font-size {
+        0% {
+            font-size: 0.2rem;
+        }
+        100% {
+            font-size: 0.9rem;
+        }
+    }
 }

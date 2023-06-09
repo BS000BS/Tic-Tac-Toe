@@ -65,14 +65,14 @@ function playerWon(player){
 }
 
 function winDrawPopup(player = '') {
-    winnerDrawText.style.animation = 'increase-font-size 0.5s ease-in forwards';
-    winnerDrawPopup.style.animation = 'display-popup 0.5s ease-in forwards';
+    winnerDrawText.style.animation = 'increase-font-size 0.4s ease-in forwards';
+    winnerDrawPopup.style.animation = 'display-popup 0.4s ease-in forwards';
     popupBlur.style.display = 'block';
     if (player != '') {
         winnerDrawText.innerText = 'The winner is ' + player;
         localStorage.setItem('TTTGame Finished!', 'true');
     } else {
-        winnerDrawText.innerText = 'There is no winner. The game has been drawn.';
+        winnerDrawText.innerText = 'There is no winner.\nThe game has been drawn.';
     }
 }
 
