@@ -3,6 +3,9 @@ const oIcon = 'bi-circle';
 const bigBox = document.querySelector('.big-box');
 const resultX = document.querySelector('.player1_result');
 const resultO = document.querySelector('.player2_result');
+const winnerDrawPopup = document.querySelector('.winner-draw-popup');
+const winnerDrawText = document.querySelector('.winner-draw-text');
+const popupBlur = document.querySelector('.blur');
 let count = 0;
 
 localStorage.setItem('turnFor', 'x');
@@ -61,6 +64,18 @@ function playerWon(player){
     } else return false;
 }
 
+function winDrawPopup(player = '') {
+    winnerDrawText.style.animation = 'increase-font-size 0.5s ease-in forwards';
+    winnerDrawPopup.style.animation = 'display-popup 0.5s ease-in forwards';
+    popupBlur.style.display = 'block';
+    if (player != '') {
+        winnerDrawText.innerText = 'The winner is ' + player;
+        localStorage.setItem('TTTGame Finished!', 'true');
+    } else {
+        winnerDrawText.innerText = 'There is no winner. The game has been drawn.';
+    }
+}
+
 
 document.body.addEventListener('click', e => {
     if (localStorage.getItem('TTTGame Finished!') !== 'true' &&  count !== 9) {
@@ -95,9 +110,8 @@ document.body.addEventListener('click', e => {
                 }
                 resultX.innerText = localStorage.getItem('resultX')
                 setTimeout(() => {
-                    alert('Player X is the winner')
-                    localStorage.setItem('TTTGame Finished!', 'true');
-                }, 300)
+                    winDrawPopup('X');
+                }, 200)
             } else if (localStorage.getItem('playerO') != null && playerWon('playerO')) {
                 if(localStorage.getItem('resultO')) {
                     localStorage.setItem('resultO', parseInt(localStorage.getItem('resultO'))+1);
@@ -106,13 +120,12 @@ document.body.addEventListener('click', e => {
                 }
                 resultO.innerText = localStorage.getItem('resultO')
                 setTimeout(() => {
-                    alert('Player O is the winner')
-                    localStorage.setItem('TTTGame Finished!', 'true');
-                }, 300)
+                    winDrawPopup('O');
+                }, 200)
             }
             setTimeout(() => {
                 if (count === 9 && localStorage.getItem('TTTGame Finished!') == null) {
-                    alert('Draw')
+                    winDrawPopup();
                 }
             }, 300)
         }
@@ -126,4 +139,10 @@ document.querySelector('.reset-results').addEventListener('click', e => {
     localStorage.removeItem('resultX');
     localStorage.removeItem('resultO');
     window.location.reload();
+})
+
+document.querySelector('.popup-remove-button').addEventListener('click', e => {
+    winnerDrawPopup.style.animation = '';
+    winnerDrawPopup.style.opacity = '0';
+    popupBlur.style.display = 'none';
 })
